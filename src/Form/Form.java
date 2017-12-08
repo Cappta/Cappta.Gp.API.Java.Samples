@@ -735,9 +735,42 @@ public class Form extends javax.swing.JFrame {
 
         AutenticarPDV();
         ConfigurarModoIntegracao(true);
-        IniciarControles();
     }//GEN-LAST:event_jButtonIniciarFormActionPerformed
 
+    private void AutenticarPDV() {
+        int resultadoAltenticacao;
+        resultadoAltenticacao = cappta.autenticarPdv(cnpj, pdv, chaveAutenticacao);
+
+        switch (resultadoAltenticacao) {
+            case 1:
+                CriarMensagemErroJanela("Não autorizado. Por favor, realize a autenticação para utilizar o CapptaGpPlus");
+                break;
+            case 2:
+                CriarMensagemErroJanela("O CapptaGpPlus esta sendo inicializado, tente novamente em alguns instantes.");
+                break;
+            case 3:
+                CriarMensagemErroJanela("O formato da requisição recebida pelo CapptaGpPlus é inválido.");
+                break;
+            case 4:
+                CriarMensagemErroJanela("Operação cancelada pelo operador.");
+                break;
+            case 7:
+                CriarMensagemErroJanela("Ocorreu um erro interno no CapptaGpPlus.");
+                break;
+            case 8:
+                CriarMensagemErroJanela("Ocorreu um erro na comunicação entre a CappAPI e o CapptaGpPlus.");
+                break;
+            case 0:
+                TextBoxResultado.setText("Autenticado com sucesso");
+                break;
+        }
+    }
+
+    private void ConfigurarModoIntegracao(boolean exibir) {
+        IConfiguracoes configs = ClassFactory.createConfiguracoes();
+        configs.exibirInterface(exibir);
+        cappta.configurar(configs);
+    }
     private void jButtonPagamentoDebitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagamentoDebitoActionPerformed
         if (this.DeveIniciarMultiCartoes()) {
             this.IniciarMulticartoes();
@@ -923,65 +956,19 @@ public class Form extends javax.swing.JFrame {
     }//GEN-LAST:event_ExecutaPagamentoCrediarioActionPerformed
 
     private void ButtonSolicitarInformacaoPinpadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarInformacaoPinpadActionPerformed
-      
+
         int tipoDeEntrada = ComboBoxTipoInformacaoPinpad.getSelectedIndex();
-        if (tipoDeEntrada == 0){ CriarMensagemErroJanela("Porfavor escolha uma opção válida");return;}
-        
+        if (tipoDeEntrada == 0) {
+            CriarMensagemErroJanela("Porfavor escolha uma opção válida");
+            return;
+        }
+
         IRequisicaoInformacaoPinpad iRequisicaoInformacaoPinpad = ClassFactory.createRequisicaoInformacaoPinpad();
         iRequisicaoInformacaoPinpad.tipoInformacaoPinpad(tipoDeEntrada);
-        
+
         String informacaoPinpad = cappta.solicitarInformacoesPinpad(iRequisicaoInformacaoPinpad);
         AtualizarResultado(informacaoPinpad);
     }//GEN-LAST:event_ButtonSolicitarInformacaoPinpadActionPerformed
-
-    private void AutenticarPDV() {
-        int resultadoAltenticacao;
-        resultadoAltenticacao = cappta.autenticarPdv(cnpj, pdv, chaveAutenticacao);
-
-        switch (resultadoAltenticacao) {
-            case 1:
-                CriarMensagemErroJanela("Não autorizado. Por favor, realize a autenticação para utilizar o CapptaGpPlus");
-                break;
-            case 2:
-                CriarMensagemErroJanela("O CapptaGpPlus esta sendo inicializado, tente novamente em alguns instantes.");
-                break;
-            case 3:
-                CriarMensagemErroJanela("O formato da requisição recebida pelo CapptaGpPlus é inválido.");
-                break;
-            case 4:
-                CriarMensagemErroJanela("Operação cancelada pelo operador.");
-                break;
-            case 7:
-                CriarMensagemErroJanela("Ocorreu um erro interno no CapptaGpPlus.");
-                break;
-            case 8:
-                CriarMensagemErroJanela("Ocorreu um erro na comunicação entre a CappAPI e o CapptaGpPlus.");
-                break;
-            case 0:
-                TextBoxResultado.setText("Autenticado com sucesso");
-                break;
-        }
-
-    }
-
-    private void IniciarControles() {
-        Dictionary<Integer, TipoParcelamento> tiposParcelamento = new Hashtable<Integer, TipoParcelamento>();
-        tiposParcelamento.put(0, TipoParcelamento.Administrador);
-        tiposParcelamento.put(1, TipoParcelamento.Loja);
-
-        Administrador.getSelectedIndex();
-
-    }
-
-    private void ConfigurarModoIntegracao(boolean exibir) {
-        IConfiguracoes configs = ClassFactory.createConfiguracoes();
-        configs.exibirInterface(exibir);
-        cappta.configurar(configs);
-    }
-
-    private void CriarMensagemErroPainel(int resultado) {
-        JOptionPane.showMessageDialog(rootPane, resultado);
-    }
 
     private void IterarOperacaoTef() {
         if (this.RadioButtonUsarMultiTef.isSelected()) {
@@ -1024,8 +1011,34 @@ public class Form extends javax.swing.JFrame {
         HabilitarBotoes();
     }
 
-    private void ExibirMensagem(IMensagem mensagem) {
-        JOptionPane.showMessageDialog(rootPane, mensagem.descricao());
+    private void FinalizarPagamento() {
+        if (processandoPagamento = false) {
+            return;
+        }
+        if (sessaoMultiTefEmAndamento) {
+            quantidadeCartoes--;
+            if (quantidadeCartoes > 0) {
+                return;
+            }
+        }
+        String mensagem = GerarMensagemTransacaoAprovada();
+
+        this.processandoPagamento = false;
+        this.sessaoMultiTefEmAndamento = false;
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, mensagem + "?", "", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            cappta.confirmarPagamentos();
+
+        } else {
+            cappta.desfazerPagamentos();
+
+        }
+    }
+
+    private boolean OperacaoNaoFinalizada(IIteracaoTef iteracaoTef) {
+        return iteracaoTef.tipoIteracao() != 1 && iteracaoTef.tipoIteracao() != 2;
     }
 
     private void RequisitarParametros(IRequisicaoParametro requisicaoParametros) {
@@ -1067,6 +1080,10 @@ public class Form extends javax.swing.JFrame {
         result = cappta.enviarParametro(inputString, acao);
     }
 
+    private void CriarMensagemErroPainel(int resultado) {
+        JOptionPane.showMessageDialog(rootPane, resultado);
+    }
+
     private void ExibirDadosOperacaoRecusada(IRespostaOperacaoRecusada resposta) {
         AtualizarResultado(resposta.motivo());
     }
@@ -1074,10 +1091,6 @@ public class Form extends javax.swing.JFrame {
     private void AtualizarResultado(String mensagem) {
 
         TextBoxResultado.setText(mensagem);
-    }
-
-    private boolean OperacaoNaoFinalizada(IIteracaoTef iteracaoTef) {
-        return iteracaoTef.tipoIteracao() != 1 && iteracaoTef.tipoIteracao() != 2;
     }
 
     @SuppressWarnings("empty-statement")
@@ -1094,6 +1107,33 @@ public class Form extends javax.swing.JFrame {
             mensagemAprovada = mensagemAprovada.append(iRespostaOperacaoAprovada.cupomReduzido().replaceAll("\"", ""));
         }
         this.AtualizarResultado(mensagemAprovada.toString());
+    }
+
+    private void ExibirMensagem(IMensagem mensagem) {
+        JOptionPane.showMessageDialog(rootPane, mensagem.descricao());
+    }
+
+    private String GerarMensagemTransacaoAprovada() {
+        String mensagem = String.format(" Sim para confirmar e Não para Cancelar",
+                (this.sessaoMultiTefEmAndamento ? "ões" : "ão"),
+                (this.sessaoMultiTefEmAndamento ? "s" : ""),
+                Environment.class);
+        return mensagem;
+    }
+
+    private void HabilitarControlesMultiTef() {
+        this.HabilitarControle(RadioButtonUsarMultiTef);
+        this.HabilitarControle(RadioButtonNaoUsarMultiTef);
+        this.HabilitarControle(NumericUpDownQuantidadeDePagamentosMultiTef);
+    }
+
+    private void HabilitarBotoes() {
+        HabilitarControle(jButtonPagamentoDebito);
+        HabilitarControle(jButtonIniciarForm);
+    }
+
+    private void HabilitarControle(Component componente) {
+        componente.setEnabled(true);
     }
 
     public static void main(String args[]) {
@@ -1126,40 +1166,6 @@ public class Form extends javax.swing.JFrame {
                 new Form().setVisible(true);
             }
         });
-    }
-
-    private void FinalizarPagamento() {
-        if (processandoPagamento = false) {
-            return;
-        }
-        if (sessaoMultiTefEmAndamento) {
-            quantidadeCartoes--;
-            if (quantidadeCartoes > 0) {
-                return;
-            }
-        }
-        String mensagem = GerarMensagemTransacaoAprovada();
-
-        this.processandoPagamento = false;
-        this.sessaoMultiTefEmAndamento = false;
-
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog(null, mensagem + "?", "", dialogButton);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            cappta.confirmarPagamentos();
-
-        } else {
-            cappta.desfazerPagamentos();
-
-        }
-    }
-
-    private String GerarMensagemTransacaoAprovada() {
-        String mensagem = String.format(" Sim para confirmar e Não para Cancelar",
-                (this.sessaoMultiTefEmAndamento ? "ões" : "ão"),
-                (this.sessaoMultiTefEmAndamento ? "s" : ""),
-                Environment.class);
-        return mensagem;
     }
 
     private boolean DeveIniciarMultiCartoes() {
@@ -1252,21 +1258,6 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.ButtonGroup qualVia;
     private javax.swing.ButtonGroup reimprimirUltimoCupom;
     // End of variables declaration//GEN-END:variables
-
-    private void HabilitarControlesMultiTef() {
-        this.HabilitarControle(RadioButtonUsarMultiTef);
-        this.HabilitarControle(RadioButtonNaoUsarMultiTef);
-        this.HabilitarControle(NumericUpDownQuantidadeDePagamentosMultiTef);
-    }
-
-    private void HabilitarBotoes() {
-        HabilitarControle(jButtonPagamentoDebito);
-        HabilitarControle(jButtonIniciarForm);
-    }
-
-    private void HabilitarControle(Component componente) {
-        componente.setEnabled(true);
-    }
 
     private void CriarMensagemErroJanela(String mensagem) {
         JOptionPane.showMessageDialog(rootPane, mensagem);
