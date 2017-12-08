@@ -367,3 +367,383 @@ FileNotFoundException - Não é possível encontrar o arquivo especificado.
    em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
 
 
+[2017-12-07 16:24:56] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:28:46] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:29:14] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:29:27] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:29:31] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:29:35] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:30:45] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:31:06] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:31:22] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:31:37] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:31:43] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:31:52] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:32:16] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:32:36] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:33:02] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:33:56] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:34:07] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:34:54] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:35:32] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:37:29] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:37:40] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:37:40] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:37:41] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:38:42] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:39:12] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:39:16] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:41:22] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:42:05] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:43:09] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:43:11] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:43:12] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:43:30] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:43:44] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:44:07] Error
+IOException - O tempo limite do semáforo expirou.
+
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:44:09] Error
+ArgumentNullException - Valor não pode ser nulo.
+Nome do parâmetro: pipeName
+   em System.IO.Pipes.NamedPipeClientStream..ctor(String serverName, String pipeName, PipeDirection direction, PipeOptions options, TokenImpersonationLevel impersonationLevel, HandleInheritability inheritability)
+   em System.IO.Pipes.NamedPipeClientStream..ctor(String serverName, String pipeName, PipeDirection direction, PipeOptions options)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:44:54] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:44:56] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:45:19] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:45:37] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:45:39] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:45:48] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+
+[2017-12-07 16:46:23] Error
+FileNotFoundException - Não é possível encontrar o arquivo especificado.
+   em System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   em System.IO.Pipes.NamedPipeClientStream.Connect(Int32 timeout)
+   em NamedPipeWrapper.PipeClientFactory.CreateAndConnectPipe(String pipeName, Int32 timeout)
+   em NamedPipeWrapper.NamedPipeClient`2.ListenSync()
+   em NamedPipeWrapper.Threading.Worker.DoWorkImpl(Object oAction)
+
+

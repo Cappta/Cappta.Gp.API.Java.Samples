@@ -7,6 +7,7 @@ import cappta.dll.IDetalhesCrediario;
 import cappta.dll.IDetalhesCredito;
 import cappta.dll.IIteracaoTef;
 import cappta.dll.IMensagem;
+import cappta.dll.IRequisicaoInformacaoPinpad;
 import cappta.dll.IRequisicaoParametro;
 import cappta.dll.IRespostaOperacaoAprovada;
 import cappta.dll.IRespostaOperacaoRecusada;
@@ -19,6 +20,7 @@ import java.awt.Component;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,6 +48,13 @@ public class Form extends javax.swing.JFrame {
     public Form() {
         this.cappta = ClassFactory.createClienteCappta();
         initComponents();
+        LabelQuantidadeDePagamentosMultiTef.setVisible(false);
+        NumericUpDownQuantidadeDePagamentosMultiTef.setVisible(false);
+        NumericUpDownQuantidadeParcelasPagamentoCredito.setVisible(false);
+        jLabelTipoParcelamentoCredito.setVisible(false);
+        Administrador.setVisible(false);
+        jLabelQuantidadeParcelas.setVisible(false);
+
     }
 
     //  @SuppressWarnings("unchecked")
@@ -202,7 +211,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(RadioButtonInterfaceVisivel)
                 .addGap(28, 28, 28)
                 .addComponent(RadioButtonInterfaceInvisivel)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,18 +251,15 @@ public class Form extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButtonIniciarForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addComponent(jLabel3))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButtonIniciarForm))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RadioButtonUsarMultiTef)
@@ -303,7 +309,6 @@ public class Form extends javax.swing.JFrame {
         jLabel7.setText("Transação Parcelada?");
 
         jLabelTipoParcelamentoCredito.setText("Tipo de Parcelamento");
-        jLabelTipoParcelamentoCredito.setEnabled(false);
 
         Administrador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha parcelamento", "Administrador", "Lojista", " " }));
 
@@ -500,9 +505,14 @@ public class Form extends javax.swing.JFrame {
 
         jTabbedPane5.addTab("Crediário", Crediario);
 
-        ComboBoxTipoInformacaoPinpad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxTipoInformacaoPinpad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha Opção", "Cpf", "Telefone", "Senha", " " }));
 
         ButtonSolicitarInformacaoPinpad.setText("Executar Operação");
+        ButtonSolicitarInformacaoPinpad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonSolicitarInformacaoPinpadActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Tipo de enrada Pinpad");
 
@@ -537,6 +547,7 @@ public class Form extends javax.swing.JFrame {
         jTabbedPane5.addTab("Pinpad", Pinpad);
 
         reimprimirUltimoCupom.add(RadioButtonReimprimirUltimoCupom);
+        RadioButtonReimprimirUltimoCupom.setSelected(true);
         RadioButtonReimprimirUltimoCupom.setText("Sim");
         RadioButtonReimprimirUltimoCupom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -683,13 +694,13 @@ public class Form extends javax.swing.JFrame {
         panelBaseLayout.setHorizontalGroup(
             panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBaseLayout.createSequentialGroup()
-                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelBaseLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -710,7 +721,7 @@ public class Form extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 881, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -738,11 +749,7 @@ public class Form extends javax.swing.JFrame {
             this.IniciarMulticartoes();
         }
 
-        int resultado = cappta.pagamentoDebito(valor);
-        if (resultado != 0) {
-            this.CriarMensagemErroPainel(resultado);
-            return;
-        }
+        cappta.pagamentoDebito(valor);
 
         processandoPagamento = true;
         IterarOperacaoTef();
@@ -752,8 +759,8 @@ public class Form extends javax.swing.JFrame {
         if (RadioButtonUsarMultiTef.isSelected() == false) {
             return;
         }
-        LabelQuantidadeDePagamentosMultiTef.show();
-        NumericUpDownQuantidadeDePagamentosMultiTef.show();
+        LabelQuantidadeDePagamentosMultiTef.setVisible(true);
+        NumericUpDownQuantidadeDePagamentosMultiTef.setVisible(true);
     }//GEN-LAST:event_RadioButtonUsarMultiTefActionPerformed
 
     private void RadioButtonNaoUsarMultiTefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonNaoUsarMultiTefActionPerformed
@@ -762,8 +769,8 @@ public class Form extends javax.swing.JFrame {
         }
 
         sessaoMultiTefEmAndamento = false;
-        LabelQuantidadeDePagamentosMultiTef.hide();
-        NumericUpDownQuantidadeDePagamentosMultiTef.hide();
+        LabelQuantidadeDePagamentosMultiTef.setVisible(false);
+        NumericUpDownQuantidadeDePagamentosMultiTef.setVisible(false);
     }//GEN-LAST:event_RadioButtonNaoUsarMultiTefActionPerformed
 
     private void NumericUpDownQuantidadeDePagamentosMultiTefMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NumericUpDownQuantidadeDePagamentosMultiTefMouseClicked
@@ -771,17 +778,11 @@ public class Form extends javax.swing.JFrame {
     }//GEN-LAST:event_NumericUpDownQuantidadeDePagamentosMultiTefMouseClicked
 
     private void RadioButtonInterfaceVisivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonInterfaceVisivelActionPerformed
-        if (this.RadioButtonInterfaceInvisivel.isSelected() == false) {
-            return;
-        }
-        this.ConfigurarModoIntegracao(true);
+        ConfigurarModoIntegracao(true);
     }//GEN-LAST:event_RadioButtonInterfaceVisivelActionPerformed
 
     private void RadioButtonInterfaceInvisivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonInterfaceInvisivelActionPerformed
-        if (this.RadioButtonInterfaceVisivel.isSelected() == false) {
-            return;
-        }
-        this.ConfigurarModoIntegracao(false);
+        ConfigurarModoIntegracao(false);
     }//GEN-LAST:event_RadioButtonInterfaceInvisivelActionPerformed
 
     private void ExecutarCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecutarCreditoActionPerformed
@@ -863,14 +864,13 @@ public class Form extends javax.swing.JFrame {
     }//GEN-LAST:event_ExecutarCancelamentoActionPerformed
 
     private void RadioButtonReimprimirUltimoCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonReimprimirUltimoCupomActionPerformed
-        jLabelNumeroControle.hide();
-        NumericUpDownNumeroControleReimpressaoCupom.hide();
+        NumericUpDownNumeroControleReimpressaoCupom.setVisible(false);
+        jLabelNumeroControle.setVisible(false);
     }//GEN-LAST:event_RadioButtonReimprimirUltimoCupomActionPerformed
 
     private void RadioButtonNaoReimprimirUltimoCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonNaoReimprimirUltimoCupomActionPerformed
-        
-        NumericUpDownNumeroControleReimpressaoCupom.show();
-        jLabelNumeroControle.show();
+        jLabelNumeroControle.setVisible(true);
+        NumericUpDownNumeroControleReimpressaoCupom.setVisible(true);
     }//GEN-LAST:event_RadioButtonNaoReimprimirUltimoCupomActionPerformed
 
     private void RadioButtonReimprimirTodasViasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RadioButtonReimprimirTodasViasMouseClicked
@@ -894,36 +894,74 @@ public class Form extends javax.swing.JFrame {
             this.CriarMensagemErroJanela("Não é possível cancelar um pagamento com uma sessão multitef em andamento.");
             return;
         }
-        if (RadioButtonReimprimirUltimoCupom.isSelected()){ cappta.reimprimirUltimoCupom(tipoVia);}
-        else{
+        if (RadioButtonReimprimirUltimoCupom.isSelected()) {
+            cappta.reimprimirUltimoCupom(tipoVia);
+        } else {
             cappta.reimprimirCupom(NumericUpDownNumeroControleReimpressaoCupom.getText(), tipoVia);
         }
-       processandoPagamento = false;
-       IterarOperacaoTef();
+        processandoPagamento = false;
+        IterarOperacaoTef();
     }//GEN-LAST:event_ExecutarReimpressaoActionPerformed
 
     private void ExecutaPagamentoCrediarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExecutaPagamentoCrediarioActionPerformed
-        double valor = (double)NumericUpDownValorPagamentoCrediario.getValue();
+        double valor = (int) NumericUpDownValorPagamentoCrediario.getValue();
         IDetalhesCrediario detalhes = ClassFactory.createDetalhesCrediario();
-        detalhes.quantidadeParcelas((int)NumericUpDownQuantidadeParcelasPagamentoCrediario.getValue());
-        
-        if(DeveIniciarMultiCartoes()){IniciarMulticartoes();}
-        
-        int resultado = cappta.pagamentoCrediario(valor, detalhes);       
-        if (resultado != 0){CriarMensagemErroPainel(resultado);return;}
-        
+        detalhes.quantidadeParcelas((int) NumericUpDownQuantidadeParcelasPagamentoCrediario.getValue());
+
+        if (DeveIniciarMultiCartoes()) {
+            IniciarMulticartoes();
+        }
+
+        int resultado = cappta.pagamentoCrediario(valor, detalhes);
+        if (resultado != 0) {
+            CriarMensagemErroPainel(resultado);
+            return;
+        }
+
         processandoPagamento = true;
-        IterarOperacaoTef();    
+        IterarOperacaoTef();
     }//GEN-LAST:event_ExecutaPagamentoCrediarioActionPerformed
+
+    private void ButtonSolicitarInformacaoPinpadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSolicitarInformacaoPinpadActionPerformed
+      
+        int tipoDeEntrada = ComboBoxTipoInformacaoPinpad.getSelectedIndex();
+        if (tipoDeEntrada == 0){ CriarMensagemErroJanela("Porfavor escolha uma opção válida");return;}
+        
+        IRequisicaoInformacaoPinpad iRequisicaoInformacaoPinpad = ClassFactory.createRequisicaoInformacaoPinpad();
+        iRequisicaoInformacaoPinpad.tipoInformacaoPinpad(tipoDeEntrada);
+        
+        String informacaoPinpad = cappta.solicitarInformacoesPinpad(iRequisicaoInformacaoPinpad);
+        AtualizarResultado(informacaoPinpad);
+    }//GEN-LAST:event_ButtonSolicitarInformacaoPinpadActionPerformed
 
     private void AutenticarPDV() {
         int resultadoAltenticacao;
         resultadoAltenticacao = cappta.autenticarPdv(cnpj, pdv, chaveAutenticacao);
-        System.out.println(resultadoAltenticacao);
-        if (resultadoAltenticacao == 0) {
-            TextBoxResultado.setText("Altenticado com sucesso");
+
+        switch (resultadoAltenticacao) {
+            case 1:
+                CriarMensagemErroJanela("Não autorizado. Por favor, realize a autenticação para utilizar o CapptaGpPlus");
+                break;
+            case 2:
+                CriarMensagemErroJanela("O CapptaGpPlus esta sendo inicializado, tente novamente em alguns instantes.");
+                break;
+            case 3:
+                CriarMensagemErroJanela("O formato da requisição recebida pelo CapptaGpPlus é inválido.");
+                break;
+            case 4:
+                CriarMensagemErroJanela("Operação cancelada pelo operador.");
+                break;
+            case 7:
+                CriarMensagemErroJanela("Ocorreu um erro interno no CapptaGpPlus.");
+                break;
+            case 8:
+                CriarMensagemErroJanela("Ocorreu um erro na comunicação entre a CappAPI e o CapptaGpPlus.");
+                break;
+            case 0:
+                TextBoxResultado.setText("Autenticado com sucesso");
+                break;
         }
-        this.CriarMensagemErroPainel(resultadoAltenticacao);
+
     }
 
     private void IniciarControles() {
@@ -935,18 +973,14 @@ public class Form extends javax.swing.JFrame {
 
     }
 
-    private void ConfigurarModoIntegracao(boolean exibirInterface) {      
+    private void ConfigurarModoIntegracao(boolean exibir) {
         IConfiguracoes configs = ClassFactory.createConfiguracoes();
-        configs.exibirInterface(exibirInterface);
+        configs.exibirInterface(exibir);
         cappta.configurar(configs);
     }
 
     private void CriarMensagemErroPainel(int resultado) {
         JOptionPane.showMessageDialog(rootPane, resultado);
-    }
-
-    private void ExibirMensagem(IMensagem descricao) {
-        JOptionPane.showMessageDialog(rootPane, descricao);
     }
 
     private void IterarOperacaoTef() {
@@ -961,12 +995,6 @@ public class Form extends javax.swing.JFrame {
             if (iteracaoTef.is(IMensagem.class)) {
                 IMensagem iMensagem = iteracaoTef.queryInterface(IMensagem.class);
                 ExibirMensagem(iMensagem);
-
-                try {
-                    Thread.sleep(INTERVALO_MILISEGUNDOS);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }
 
             if (iteracaoTef.is(IRequisicaoParametro.class)) {
@@ -974,7 +1002,7 @@ public class Form extends javax.swing.JFrame {
                 RequisitarParametros(iRequisicaoParametro);
             }
 
-            if (iteracaoTef.is(IRequisicaoParametro.class)) {
+            if (iteracaoTef.is(IRespostaTransacaoPendente.class)) {
                 IRespostaTransacaoPendente resposta = iteracaoTef.queryInterface(IRespostaTransacaoPendente.class);
                 ResolverTransacaoPendente(resposta);
             }
@@ -994,6 +1022,10 @@ public class Form extends javax.swing.JFrame {
             this.HabilitarControlesMultiTef();
         }//true
         HabilitarBotoes();
+    }
+
+    private void ExibirMensagem(IMensagem mensagem) {
+        JOptionPane.showMessageDialog(rootPane, mensagem.descricao());
     }
 
     private void RequisitarParametros(IRequisicaoParametro requisicaoParametros) {
@@ -1036,7 +1068,7 @@ public class Form extends javax.swing.JFrame {
     }
 
     private void ExibirDadosOperacaoRecusada(IRespostaOperacaoRecusada resposta) {
-        AtualizarResultado(String.format("{1}, {2}, {3}", resposta.codigoMotivo(), resposta.motivo()));
+        AtualizarResultado(resposta.motivo());
     }
 
     private void AtualizarResultado(String mensagem) {
@@ -1239,5 +1271,4 @@ public class Form extends javax.swing.JFrame {
     private void CriarMensagemErroJanela(String mensagem) {
         JOptionPane.showMessageDialog(rootPane, mensagem);
     }
-
 }
