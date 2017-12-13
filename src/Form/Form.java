@@ -13,6 +13,7 @@ import cappta.dll.IRespostaOperacaoAprovada;
 import cappta.dll.IRespostaOperacaoRecusada;
 import cappta.dll.IRespostaTransacaoPendente;
 import cappta.dll.ITransacaoPendente;
+import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com4j.Com4jObject;
 import com4j.ComThread;
 import com4j.EventCookie;
@@ -25,8 +26,12 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Control;
+import javax.print.ServiceUIFactory;
+import javax.swing.InputMap;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.omg.CORBA.Environment;
+import sun.awt.im.InputMethodJFrame;
 
 public class Form extends javax.swing.JFrame {
 
@@ -54,7 +59,7 @@ public class Form extends javax.swing.JFrame {
         jLabelTipoParcelamentoCredito.setVisible(false);
         Administrador.setVisible(false);
         jLabelQuantidadeParcelas.setVisible(false);
-
+        AutenticarPDV();
     }
 
     //  @SuppressWarnings("unchecked")
@@ -73,17 +78,17 @@ public class Form extends javax.swing.JFrame {
         RadioButtonUsarMultiTef = new javax.swing.JRadioButton();
         RadioButtonNaoUsarMultiTef = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        jButtonIniciarForm = new javax.swing.JButton();
         LabelQuantidadeDePagamentosMultiTef = new javax.swing.JLabel();
         NumericUpDownQuantidadeDePagamentosMultiTef = new javax.swing.JSpinner();
         jPanel6 = new javax.swing.JPanel();
         RadioButtonInterfaceVisivel = new javax.swing.JRadioButton();
         RadioButtonInterfaceInvisivel = new javax.swing.JRadioButton();
+        jLabelMensagem = new javax.swing.JLabel();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         Debito = new javax.swing.JPanel();
         jButtonPagamentoDebito = new javax.swing.JButton();
-        jTextFieldValorDebito = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jTextFieldValorDebito = new javax.swing.JTextField();
         Credito = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldValorCredito = new javax.swing.JTextField();
@@ -168,13 +173,6 @@ public class Form extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Cappta Melhor Solução");
 
-        jButtonIniciarForm.setText("Iniciar Form");
-        jButtonIniciarForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarFormActionPerformed(evt);
-            }
-        });
-
         LabelQuantidadeDePagamentosMultiTef.setText("Quantidade de Pagamentos");
 
         NumericUpDownQuantidadeDePagamentosMultiTef.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,21 +227,23 @@ public class Form extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(RadioButtonUsarMultiTef)
-                        .addGap(18, 18, 18)
-                        .addComponent(RadioButtonNaoUsarMultiTef)
-                        .addGap(32, 32, 32)
-                        .addComponent(LabelQuantidadeDePagamentosMultiTef)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(NumericUpDownQuantidadeDePagamentosMultiTef, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButtonIniciarForm, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119)
-                        .addComponent(jLabel3)))
-                .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(RadioButtonUsarMultiTef)
+                                .addGap(18, 18, 18)
+                                .addComponent(RadioButtonNaoUsarMultiTef)
+                                .addGap(32, 32, 32)
+                                .addComponent(LabelQuantidadeDePagamentosMultiTef)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NumericUpDownQuantidadeDePagamentosMultiTef, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelMensagem, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)))
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -251,15 +251,14 @@ public class Form extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButtonIniciarForm))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelMensagem, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RadioButtonUsarMultiTef)
@@ -280,26 +279,31 @@ public class Form extends javax.swing.JFrame {
 
         jLabel1.setText("Valor ");
 
+        jTextFieldValorDebito.setName(""); // NOI18N
+
         javax.swing.GroupLayout DebitoLayout = new javax.swing.GroupLayout(Debito);
         Debito.setLayout(DebitoLayout);
         DebitoLayout.setHorizontalGroup(
             DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DebitoLayout.createSequentialGroup()
-                .addGap(0, 140, Short.MAX_VALUE)
+                .addGap(0, 112, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldValorDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(132, 132, 132)
                 .addComponent(jButtonPagamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         DebitoLayout.setVerticalGroup(
             DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DebitoLayout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
-                .addGroup(DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonPagamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldValorDebito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)))
+            .addGroup(DebitoLayout.createSequentialGroup()
+                .addContainerGap(338, Short.MAX_VALUE)
+                .addGroup(DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonPagamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DebitoLayout.createSequentialGroup()
+                        .addComponent(jTextFieldValorDebito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jTabbedPane5.addTab("Débito", Debito);
@@ -448,7 +452,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NumericUpDownNumeroControleCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                 .addComponent(ExecutarCancelamento)
                 .addContainerGap())
         );
@@ -499,7 +503,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NumericUpDownQuantidadeParcelasPagamentoCrediario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                 .addComponent(ExecutaPagamentoCrediario))
         );
 
@@ -539,7 +543,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboBoxTipoInformacaoPinpad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
                 .addComponent(ButtonSolicitarInformacaoPinpad)
                 .addContainerGap())
         );
@@ -680,7 +684,7 @@ public class Form extends javax.swing.JFrame {
                     .addGroup(ReimpressãoLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addComponent(ExecutarReimpressao)
                 .addContainerGap())
         );
@@ -725,17 +729,13 @@ public class Form extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonIniciarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarFormActionPerformed
-
-        AutenticarPDV();
-        ConfigurarModoIntegracao(true);
-    }//GEN-LAST:event_jButtonIniciarFormActionPerformed
 
     private void AutenticarPDV() {
         int resultadoAltenticacao;
@@ -777,7 +777,10 @@ public class Form extends javax.swing.JFrame {
         }
 
         double valor = Double.parseDouble(jTextFieldValorDebito.getText());
-
+        if(valor <= 0  ){
+            CriarMensagemErroJanela("Por favor preencha com o valor");
+            return;
+        }
         if (this.DeveIniciarMultiCartoes()) {
             this.IniciarMulticartoes();
         }
@@ -1033,7 +1036,6 @@ public class Form extends javax.swing.JFrame {
 
         } else {
             cappta.desfazerPagamentos();
-
         }
     }
 
@@ -1042,18 +1044,17 @@ public class Form extends javax.swing.JFrame {
     }
 
     private void RequisitarParametros(IRequisicaoParametro requisicaoParametros) {
-        String entrada;
+        String mensagem = input(requisicaoParametros.mensagem());
         int parametro;
-        int resposta;
-
-        entrada = JOptionPane.showInputDialog(rootPane, requisicaoParametros.mensagem());
-        if (entrada.length() <= 0) {
+        if (mensagem == null) {
+            return;
+        }
+        if (mensagem.isEmpty()) {
             parametro = 2;
         } else {
             parametro = 1;
         }
-
-        resposta = cappta.enviarParametro(entrada, parametro);
+        cappta.enviarParametro(mensagem, parametro);
     }
 
     private void ResolverTransacaoPendente(IRespostaTransacaoPendente irespostaTransacaoPendente) {
@@ -1107,18 +1108,23 @@ public class Form extends javax.swing.JFrame {
             mensagemAprovada = mensagemAprovada.append(iRespostaOperacaoAprovada.cupomReduzido().replaceAll("\"", ""));
         }
         this.AtualizarResultado(mensagemAprovada.toString());
+
     }
 
-    private void ExibirMensagem(IMensagem mensagem) {
-        JOptionPane.showMessageDialog(rootPane, mensagem.descricao());
-    }
-
+    /* private void ExibirMensagem(IMensagem mensagem) {
+        //JOptionPane.showMessageDialog(rootPane, mensagem.descricao());
+        JOptionPane.showMessageDialog(null, mensagem.descricao(), "Retorno",  JOptionPane.NO_OPTION);
+    }*/
     private String GerarMensagemTransacaoAprovada() {
         String mensagem = String.format(" Sim para confirmar e Não para Cancelar",
                 (this.sessaoMultiTefEmAndamento ? "ões" : "ão"),
                 (this.sessaoMultiTefEmAndamento ? "s" : ""),
                 Environment.class);
         return mensagem;
+    }
+
+    private void CriarMensagemErroJanela(String mensagem) {
+        JOptionPane.showMessageDialog(rootPane, mensagem);
     }
 
     private void HabilitarControlesMultiTef() {
@@ -1129,11 +1135,55 @@ public class Form extends javax.swing.JFrame {
 
     private void HabilitarBotoes() {
         HabilitarControle(jButtonPagamentoDebito);
-        HabilitarControle(jButtonIniciarForm);
     }
 
     private void HabilitarControle(Component componente) {
         componente.setEnabled(true);
+    }
+
+    private boolean DeveIniciarMultiCartoes() {
+        return this.sessaoMultiTefEmAndamento == false && this.RadioButtonUsarMultiTef.isSelected();
+    }
+
+    private void IniciarMulticartoes() {
+        this.quantidadeCartoes = (int) this.NumericUpDownQuantidadeDePagamentosMultiTef.getValue();
+        this.sessaoMultiTefEmAndamento = true;
+        cappta.iniciarMultiCartoes(this.quantidadeCartoes);
+    }
+
+    private void DesabilitarControlesMultiTef() {
+        DesabilitarControle(RadioButtonUsarMultiTef);
+        DesabilitarControle(RadioButtonNaoUsarMultiTef);
+        DesabilitarControle(NumericUpDownQuantidadeDePagamentosMultiTef);
+    }
+
+    private void DesabilitarBotoes() {
+        DesabilitarControle(jButtonPagamentoDebito);
+
+    }
+
+    private String input(String msg) {
+        return JOptionPane.showInputDialog(null, msg);
+    }
+
+    private void DesabilitarControle(Component componente) {
+        componente.setEnabled(false);
+    }
+
+    protected void ExibirMensagem(IMensagem mensagem) {
+        JOptionPane opt = new JOptionPane(mensagem.descricao(), JOptionPane.WARNING_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}); // no buttons
+        final JDialog dlg = opt.createDialog("Retorno");
+        new Thread(new Runnable() {
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    dlg.dispose();
+
+                } catch (Throwable th) {
+                }
+            }
+        }).start();
+        dlg.setVisible(true);
     }
 
     public static void main(String args[]) {
@@ -1166,31 +1216,6 @@ public class Form extends javax.swing.JFrame {
                 new Form().setVisible(true);
             }
         });
-    }
-
-    private boolean DeveIniciarMultiCartoes() {
-        return this.sessaoMultiTefEmAndamento == false && this.RadioButtonUsarMultiTef.isSelected();
-    }
-
-    private void IniciarMulticartoes() {
-        this.quantidadeCartoes = (int) this.NumericUpDownQuantidadeDePagamentosMultiTef.getValue();
-        this.sessaoMultiTefEmAndamento = true;
-        cappta.iniciarMultiCartoes(this.quantidadeCartoes);
-    }
-
-    private void DesabilitarControlesMultiTef() {
-        DesabilitarControle(RadioButtonUsarMultiTef);
-        DesabilitarControle(RadioButtonNaoUsarMultiTef);
-        DesabilitarControle(NumericUpDownQuantidadeDePagamentosMultiTef);
-    }
-
-    private void DesabilitarBotoes() {
-        DesabilitarControle(jButtonPagamentoDebito);
-        DesabilitarControle(jButtonIniciarForm);
-    }
-
-    private void DesabilitarControle(Component componente) {
-        componente.setEnabled(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1228,7 +1253,6 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel Reimprimir;
     private javax.swing.JTextPane TextBoxResultado;
     private javax.swing.JTextField TextBoxSenhaAdministrativaCancelamento;
-    private javax.swing.JButton jButtonIniciarForm;
     private javax.swing.JButton jButtonPagamentoDebito;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1240,6 +1264,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelMensagem;
     private javax.swing.JLabel jLabelNumeroControle;
     private javax.swing.JLabel jLabelQualVia;
     private javax.swing.JLabel jLabelQuantidadeParcelas;
@@ -1259,7 +1284,4 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.ButtonGroup reimprimirUltimoCupom;
     // End of variables declaration//GEN-END:variables
 
-    private void CriarMensagemErroJanela(String mensagem) {
-        JOptionPane.showMessageDialog(rootPane, mensagem);
-    }
 }
