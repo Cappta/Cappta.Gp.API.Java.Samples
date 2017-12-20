@@ -1,0 +1,1 @@
+cappta.dll.IRequisicaoInformacaoPinpad

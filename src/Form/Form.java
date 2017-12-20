@@ -1,23 +1,24 @@
 package Form;
 
-import cappta.dll.ClassFactory;
-import cappta.dll.IClienteCappta;
-import cappta.dll.IConfiguracoes;
-import cappta.dll.IDetalhesCrediario;
-import cappta.dll.IDetalhesCredito;
-import cappta.dll.IIteracaoTef;
-import cappta.dll.IMensagem;
-import cappta.dll.IRequisicaoInformacaoPinpad;
-import cappta.dll.IRequisicaoParametro;
-import cappta.dll.IRespostaOperacaoAprovada;
-import cappta.dll.IRespostaOperacaoRecusada;
-import cappta.dll.IRespostaTransacaoPendente;
-import cappta.dll.ITransacaoPendente;
+import Com.Api.Java.IClienteCappta;
+import Com.Api.Java.ClassFactory;
+import Com.Api.Java.IConfiguracoes;
+import Com.Api.Java.IDetalhesCrediario;
+import Com.Api.Java.IDetalhesCredito;
+import Com.Api.Java.IIteracaoTef;
+import Com.Api.Java.IMensagem;
+import Com.Api.Java.IRequisicaoInformacaoPinpad;
+import Com.Api.Java.IRequisicaoParametro;
+import Com.Api.Java.IRespostaOperacaoAprovada;
+import Com.Api.Java.IRespostaOperacaoRecusada;
+import Com.Api.Java.IRespostaTransacaoPendente;
+import Com.Api.Java.ITransacaoPendente;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com4j.Com4jObject;
 import com4j.ComThread;
 import com4j.EventCookie;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -30,6 +31,7 @@ import javax.print.ServiceUIFactory;
 import javax.swing.InputMap;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 import org.omg.CORBA.Environment;
 import sun.awt.im.InputMethodJFrame;
 
@@ -54,6 +56,8 @@ public class Form extends javax.swing.JFrame {
         this.cappta = ClassFactory.createClienteCappta();
         initComponents();
         LabelQuantidadeDePagamentosMultiTef.setVisible(false);
+        SpinnerNumberModel model = new SpinnerNumberModel(2, 2, 9, 1);
+
         NumericUpDownQuantidadeDePagamentosMultiTef.setVisible(false);
         NumericUpDownQuantidadeParcelasPagamentoCredito.setVisible(false);
         jLabelTipoParcelamentoCredito.setVisible(false);
@@ -175,6 +179,7 @@ public class Form extends javax.swing.JFrame {
 
         LabelQuantidadeDePagamentosMultiTef.setText("Quantidade de Pagamentos");
 
+        NumericUpDownQuantidadeDePagamentosMultiTef.setModel(new javax.swing.SpinnerNumberModel(2, 2, 9, 1));
         NumericUpDownQuantidadeDePagamentosMultiTef.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NumericUpDownQuantidadeDePagamentosMultiTefMouseClicked(evt);
@@ -296,7 +301,7 @@ public class Form extends javax.swing.JFrame {
         DebitoLayout.setVerticalGroup(
             DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DebitoLayout.createSequentialGroup()
-                .addContainerGap(338, Short.MAX_VALUE)
+                .addContainerGap(341, Short.MAX_VALUE)
                 .addGroup(DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DebitoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonPagamentoDebito, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -452,7 +457,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(NumericUpDownNumeroControleCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
                 .addComponent(ExecutarCancelamento)
                 .addContainerGap())
         );
@@ -503,7 +508,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NumericUpDownQuantidadeParcelasPagamentoCrediario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addComponent(ExecutaPagamentoCrediario))
         );
 
@@ -543,7 +548,7 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboBoxTipoInformacaoPinpad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                 .addComponent(ButtonSolicitarInformacaoPinpad)
                 .addContainerGap())
         );
@@ -684,7 +689,7 @@ public class Form extends javax.swing.JFrame {
                     .addGroup(ReimpressãoLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
                 .addComponent(ExecutarReimpressao)
                 .addContainerGap())
         );
@@ -777,7 +782,7 @@ public class Form extends javax.swing.JFrame {
         }
 
         double valor = Double.parseDouble(jTextFieldValorDebito.getText());
-        if(valor <= 0  ){
+        if (valor <= 0) {
             CriarMensagemErroJanela("Por favor preencha com o valor");
             return;
         }
@@ -1044,7 +1049,7 @@ public class Form extends javax.swing.JFrame {
     }
 
     private void RequisitarParametros(IRequisicaoParametro requisicaoParametros) {
-        String mensagem = input(requisicaoParametros.mensagem());
+        String mensagem = Input(requisicaoParametros.mensagem());
         int parametro;
         if (mensagem == null) {
             return;
@@ -1058,27 +1063,19 @@ public class Form extends javax.swing.JFrame {
     }
 
     private void ResolverTransacaoPendente(IRespostaTransacaoPendente irespostaTransacaoPendente) {
-        ITransacaoPendente transacao = null;
-        String inputString = null;
-        int acao;
-        int result;
-
-        StringBuilder mensagemTransacaoPendente = new StringBuilder();
-        mensagemTransacaoPendente.append(irespostaTransacaoPendente.mensagem());
-        mensagemTransacaoPendente.append("Número de Controle:" + transacao.numeroControle());
-        mensagemTransacaoPendente.append("Bandeira:" + transacao.nomeBandeiraCartao());
-        mensagemTransacaoPendente.append("Adquirente:" + transacao.nomeAdquirente());
-        mensagemTransacaoPendente.append("Valor:" + transacao.valor());
-        mensagemTransacaoPendente.append("Data:" + transacao.dataHoraAutorizacao());
-
-        inputString = JOptionPane.showInputDialog(rootPane, irespostaTransacaoPendente);
-        if (inputString.length() <= 0) {
+         int acao = 1;
+        String parametro = "";
+        String msg = irespostaTransacaoPendente.mensagem();
+        
+        parametro = Input(msg);
+        if (parametro.length() == 0) {
             acao = 2;
-        } else {
+            //cappta.enviarParametro(parametro, acao);
+        }else{
             acao = 1;
         }
-
-        result = cappta.enviarParametro(inputString, acao);
+        
+        cappta.enviarParametro(parametro, acao);
     }
 
     private void CriarMensagemErroPainel(int resultado) {
@@ -1162,7 +1159,7 @@ public class Form extends javax.swing.JFrame {
 
     }
 
-    private String input(String msg) {
+    private String Input(String msg) {
         return JOptionPane.showInputDialog(null, msg);
     }
 
