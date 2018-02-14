@@ -4,7 +4,9 @@ A Dll da Cappta foi desenvolvida utilizando as melhores práticas de programaç�
 
 Obs: Durante a instalação do CapptaGpPlus o mesmo encarrega-se de registrar a DLL em seu computador.
 
-<h3>Primeira etapa para integração.</h3></br>
+<h3>Etapa 1</h3></br>
+
+<h4>Tempo estimado de 01:00 hora </h4>
 
  A primeira etapa consiste na na utilização do Com4j ou outra biblioteca para tratamento de Dll em .Net.</br>
  
@@ -65,6 +67,8 @@ O resultado para autenticação com sucesso é: 0
 
 <h1> Etapa 2 </h1>
 
+<h4>Tempo estimado de 00:30 minutos</h4>
+
 Temos duas formas de integração, a visivel, onde a interação com o usuário fica por conta da Cappta, e a invisivel onde o form pode ser personalizado.
 
 
@@ -79,6 +83,8 @@ Temos duas formas de integração, a visivel, onde a interação com o usuário 
 ```
 
 <h1>Etapa 3</h1>
+
+<h4>Tempo estimado de 01:00 hora</h4>
 
 Conforme mencionado acima a Iteração Tef é muito importante para o perfeito funcionamento da integração, toda as ações de venda e administrativas passam por esta função. 
 
@@ -230,6 +236,8 @@ private void FinalizarPagamento()
 
 <h1>Etapa 4</h1>
 
+<h4> Tempo estimado de 01:00 hora </h4>
+
 Parabéns agora falta pouco, lembrando que a qualquer momento você pode entrar em contato com a equipe tecnica.
 
 Tel: (11) 4302-6179.
@@ -316,6 +324,8 @@ private void jButtonPagamentoDebitoActionPerformed(java.awt.event.ActionEvent ev
 
 <h1>Etapa 5 </h1>
 
+<h4> Tempo estimado de 01:00 hora </h4>
+
 **Funções administrativas**
 
 Agora que tratamos as formas de pagamento, podemos partir para as funções administrativas. 
@@ -325,10 +335,13 @@ Clientes com frequência pedem a reimpressão de um comprovante ou um cancelamen
 <h3>Para reimpressão </h3>
 Temos as seguintes formas: 
 
-*Reimpressão por número de controle
-*Reimpressão cupom lojista
-*Reimpressão cupom cliente
-*Reimpressão de todas as vias
+Reimpressão por número de controle
+
+Reimpressão cupom lojista
+
+Reimpressão cupom cliente
+
+Reimpressão de todas as vias
 
 ```javascript
 private void OnButtonExecutaReimpressaoCupomClick(object sender, EventArgs e)
@@ -388,6 +401,8 @@ private void ExecutarCancelamentoActionPerformed(java.awt.event.ActionEvent evt)
 
 ```
 <h1> Etapa 6 </h1>
+
+<h4> Tempo estimado de 00:40 minutos </h4>
 
 Agora que ja fizemos 80% da integração precisamos trabalhar no Multicartões.
 
