@@ -16,21 +16,33 @@ import sun.awt.im.InputMethodJFrame;
 public class Form extends javax.swing.JFrame {
 
     IClienteCappta cappta;
+    
     IIteracaoTef iteracaoTef;
+    
     private final long INTERVALO_MILISEGUNDOS = 500;
+    
     private boolean processandoPagamento;
+    
     private boolean sessaoMultiTefEmAndamento;
+    
     private int resultadoAltenticacao;
+    
     private int quantidadeCartoes;
+    
     private String cnpj = "34555898000186";
+    
     private int pdv = 1;
+    
     private String chaveAutenticacao = "795180024C04479982560F61B3C2C06E";
+    
     private final int TIPO_VIA_TODAS = 1;
+    
     private final int TIPO_VIA_CLIENTE = 2;
+    
     private final int TIPO_VIA_LOJA = 3;
+    
     private int tipoVia = TIPO_VIA_TODAS;
-    private IRespostaLoja consultaLojas;
-
+ 
     public Form()
     {
         this.cappta = ClassFactory.createClienteCappta();
@@ -66,7 +78,7 @@ public class Form extends javax.swing.JFrame {
         qualVia = new javax.swing.ButtonGroup();
         reimprimirUltimoCupom = new javax.swing.ButtonGroup();
         jPanel11 = new javax.swing.JPanel();
-        panelBase = new javax.swing.JPanel();
+        panelBaseMenu = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPanelTransacoes = new javax.swing.JTabbedPane();
         Credito = new javax.swing.JPanel();
@@ -79,19 +91,19 @@ public class Form extends javax.swing.JFrame {
         RadioButtonPagamentoCreditoComParcelas = new javax.swing.JRadioButton();
         RadioButtonPagamentoCreditoSemParcelas = new javax.swing.JRadioButton();
         Cancelamento = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabelSenhaAdm = new javax.swing.JLabel();
         TextBoxSenhaAdministrativaCancelamento = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
+        jLabelNControle = new javax.swing.JLabel();
         NumericUpDownNumeroControleCancelamento = new javax.swing.JTextField();
         ExecutarCancelamento = new javax.swing.JToggleButton();
         Crediario = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        jLabelQparcelas = new javax.swing.JLabel();
         NumericUpDownQuantidadeParcelasPagamentoCrediario = new javax.swing.JSpinner();
         ExecutaPagamentoCrediario = new javax.swing.JButton();
         Pinpad = new javax.swing.JPanel();
         ComboBoxTipoInformacaoPinpad = new javax.swing.JComboBox<>();
         ButtonSolicitarInformacaoPinpad = new javax.swing.JToggleButton();
-        jLabel15 = new javax.swing.JLabel();
+        jLabelTPinpad = new javax.swing.JLabel();
         Reimpressão = new javax.swing.JPanel();
         RadioButtonReimprimirUltimoCupom = new javax.swing.JRadioButton();
         RadioButtonNaoReimprimirUltimoCupom = new javax.swing.JRadioButton();
@@ -111,7 +123,7 @@ public class Form extends javax.swing.JFrame {
         RadioButtonInterfaceInvisivel = new javax.swing.JRadioButton();
         RadioButtonInterfaceVisivel = new javax.swing.JRadioButton();
         jLabelModoIntegracao = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelMultiTef = new javax.swing.JLabel();
         RadioButtonUsarMultiTef = new javax.swing.JRadioButton();
         RadioButtonNaoUsarMultiTef = new javax.swing.JRadioButton();
         LabelQuantidadeDePagamentosMultiTef = new javax.swing.JLabel();
@@ -130,7 +142,7 @@ public class Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBase.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelBaseMenu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -234,11 +246,11 @@ public class Form extends javax.swing.JFrame {
 
         jTabbedPanelTransacoes.addTab("Credito", Credito);
 
-        jLabel16.setText("Senha Administrativa");
+        jLabelSenhaAdm.setText("Senha Administrativa");
 
         TextBoxSenhaAdministrativaCancelamento.setText("cappta");
 
-        jLabel17.setText("Número de Controle");
+        jLabelNControle.setText("Número de Controle");
 
         ExecutarCancelamento.setText("Executar Operação");
         ExecutarCancelamento.addActionListener(new java.awt.event.ActionListener() {
@@ -257,8 +269,8 @@ public class Form extends javax.swing.JFrame {
                     .addGroup(CancelamentoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(CancelamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17))
+                            .addComponent(jLabelSenhaAdm)
+                            .addComponent(jLabelNControle))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(CancelamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NumericUpDownNumeroControleCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,19 +282,19 @@ public class Form extends javax.swing.JFrame {
             .addGroup(CancelamentoLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(CancelamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
+                    .addComponent(jLabelSenhaAdm)
                     .addComponent(TextBoxSenhaAdministrativaCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CancelamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NumericUpDownNumeroControleCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabelNControle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(ExecutarCancelamento, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPanelTransacoes.addTab("Cancelamento", Cancelamento);
 
-        jLabel11.setText("Quantidade de parcelas");
+        jLabelQparcelas.setText("Quantidade de parcelas");
 
         NumericUpDownQuantidadeParcelasPagamentoCrediario.setValue(2);
 
@@ -299,7 +311,7 @@ public class Form extends javax.swing.JFrame {
             CrediarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CrediarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11)
+                .addComponent(jLabelQparcelas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NumericUpDownQuantidadeParcelasPagamentoCrediario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(218, Short.MAX_VALUE))
@@ -312,7 +324,7 @@ public class Form extends javax.swing.JFrame {
             .addGroup(CrediarioLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(CrediarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(jLabelQparcelas)
                     .addComponent(NumericUpDownQuantidadeParcelasPagamentoCrediario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(ExecutaPagamentoCrediario, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -329,7 +341,7 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setText("Tipo de entrada Pinpad");
+        jLabelTPinpad.setText("Tipo de entrada Pinpad");
 
         javax.swing.GroupLayout PinpadLayout = new javax.swing.GroupLayout(Pinpad);
         Pinpad.setLayout(PinpadLayout);
@@ -341,7 +353,7 @@ public class Form extends javax.swing.JFrame {
                 .addContainerGap(227, Short.MAX_VALUE))
             .addGroup(PinpadLayout.createSequentialGroup()
                 .addGroup(PinpadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTPinpad, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonSolicitarInformacaoPinpad, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -349,7 +361,7 @@ public class Form extends javax.swing.JFrame {
             PinpadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PinpadLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addComponent(jLabel15)
+                .addComponent(jLabelTPinpad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboBoxTipoInformacaoPinpad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
@@ -524,8 +536,8 @@ public class Form extends javax.swing.JFrame {
 
         jLabelModoIntegracao.setText("Modo de Integração");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Utilizar Muliplus Cartões ?");
+        jLabelMultiTef.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabelMultiTef.setText("Utilizar Muliplus Cartões ?");
 
         multplusCartoes.add(RadioButtonUsarMultiTef);
         RadioButtonUsarMultiTef.setText("Sim");
@@ -553,31 +565,31 @@ public class Form extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelBaseLayout = new javax.swing.GroupLayout(panelBase);
-        panelBase.setLayout(panelBaseLayout);
-        panelBaseLayout.setHorizontalGroup(
-            panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBaseLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelBaseMenuLayout = new javax.swing.GroupLayout(panelBaseMenu);
+        panelBaseMenu.setLayout(panelBaseMenuLayout);
+        panelBaseMenuLayout.setHorizontalGroup(
+            panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBaseMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBaseLayout.createSequentialGroup()
+                .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBaseMenuLayout.createSequentialGroup()
                         .addComponent(jTabbedPanelTransacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1)
                             .addComponent(jTextFieldValor, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)))
-                    .addGroup(panelBaseLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                    .addGroup(panelBaseMenuLayout.createSequentialGroup()
+                        .addComponent(jLabelMultiTef)
                         .addGap(18, 18, 18)
-                        .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelBaseLayout.createSequentialGroup()
+                        .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelBaseMenuLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabelModoIntegracao)
                                 .addGap(18, 18, 18)
                                 .addComponent(RadioButtonInterfaceInvisivel)
                                 .addGap(18, 18, 18)
                                 .addComponent(RadioButtonInterfaceVisivel))
-                            .addGroup(panelBaseLayout.createSequentialGroup()
+                            .addGroup(panelBaseMenuLayout.createSequentialGroup()
                                 .addComponent(RadioButtonUsarMultiTef)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(RadioButtonNaoUsarMultiTef)
@@ -589,29 +601,30 @@ public class Form extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        panelBaseLayout.setVerticalGroup(
-            panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelBaseMenuLayout.setVerticalGroup(
+            panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(panelBaseLayout.createSequentialGroup()
+            .addGroup(panelBaseMenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelMultiTef, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RadioButtonUsarMultiTef)
                     .addComponent(RadioButtonNaoUsarMultiTef)
                     .addComponent(LabelQuantidadeDePagamentosMultiTef)
                     .addComponent(NumericUpDownQuantidadeDePagamentosMultiTef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelModoIntegracao)
-                    .addComponent(RadioButtonInterfaceInvisivel)
-                    .addComponent(RadioButtonInterfaceVisivel))
-                .addGroup(panelBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBaseLayout.createSequentialGroup()
+                .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RadioButtonInterfaceVisivel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelModoIntegracao)
+                        .addComponent(RadioButtonInterfaceInvisivel)))
+                .addGroup(panelBaseMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBaseMenuLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaseLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBaseMenuLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jTabbedPanelTransacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(371, 371, 371))
@@ -623,12 +636,12 @@ public class Form extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelBaseMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelBaseMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -679,6 +692,7 @@ public class Form extends javax.swing.JFrame {
         configs.exibirInterface(exibir);
         cappta.configurar(configs);
     }
+    
     private void RadioButtonUsarMultiTefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonUsarMultiTefActionPerformed
        
         if (RadioButtonUsarMultiTef.isSelected() == false) {return; }
@@ -883,7 +897,6 @@ public class Form extends javax.swing.JFrame {
         this.IterarOperacaoTef();
     }//GEN-LAST:event_ExecutarCreditoActionPerformed
 
-
     private void IterarOperacaoTef() {
         if (this.RadioButtonUsarMultiTef.isSelected()) {
             this.DesabilitarControlesMultiTef();
@@ -946,23 +959,27 @@ public class Form extends javax.swing.JFrame {
 
         } else {cappta.desfazerPagamentos();} 
     }
-
+    
     private boolean OperacaoNaoFinalizada(IIteracaoTef iteracaoTef) 
     {
         return iteracaoTef.tipoIteracao() != 1 && iteracaoTef.tipoIteracao() != 2;
     }
-
+    
     private void RequisitarParametros(IRequisicaoParametro requisicaoParametros)
     {
         String mensagem = Input(requisicaoParametros.mensagem());
+        int resultado;
         int parametro;
-        if (mensagem == null) { return;}
-
-        if (mensagem.isEmpty()) {parametro = 2;}    
-         else {parametro = 1;}         
-        cappta.enviarParametro(mensagem, parametro);       
+              
+        if ( mensagem == null || mensagem.isEmpty())
+        {parametro = 2; mensagem = "";}
+        else
+        {parametro = 1;}
+        
+        resultado = cappta.enviarParametro(mensagem, parametro);
+               
     }
-
+    
     private void ResolverTransacaoPendente(IRespostaTransacaoPendente irespostaTransacaoPendente)
     {
         int acao = 1;
@@ -975,18 +992,18 @@ public class Form extends javax.swing.JFrame {
            
         cappta.enviarParametro(parametro, acao);
     }
-
+   
     private void ExibirDadosOperacaoRecusada(IRespostaOperacaoRecusada resposta)
     {
         AtualizarResultado(resposta.motivo());
     }
-
+    
     private void AtualizarResultado(String mensagem)
     {
         TextBoxResultado.setText(mensagem);
     }
-
     @SuppressWarnings("empty-statement")
+    
     private void ExibirDadosOperacaoAprovada(IRespostaOperacaoAprovada iRespostaOperacaoAprovada)
     {
         StringBuilder mensagemAprovada = new StringBuilder();
@@ -1004,11 +1021,11 @@ public class Form extends javax.swing.JFrame {
 
     }
     
-     private void CriarMensagemErroPainel(int resultado) 
+    private void CriarMensagemErroPainel(int resultado) 
     {
         JOptionPane.showMessageDialog(rootPane, resultado);
     }
-
+   
     private String GerarMensagemTransacaoAprovada()
     {
         String mensagem = String.format(" Sim para confirmar e Não para Cancelar",
@@ -1163,16 +1180,16 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JLabel Reimprimir;
     private javax.swing.JTextPane TextBoxResultado;
     private javax.swing.JTextField TextBoxSenhaAdministrativaCancelamento;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelModoIntegracao;
+    private javax.swing.JLabel jLabelMultiTef;
+    private javax.swing.JLabel jLabelNControle;
     private javax.swing.JLabel jLabelNumeroControle;
+    private javax.swing.JLabel jLabelQparcelas;
     private javax.swing.JLabel jLabelQualVia;
     private javax.swing.JLabel jLabelQuantidadeParcelas;
+    private javax.swing.JLabel jLabelSenhaAdm;
+    private javax.swing.JLabel jLabelTPinpad;
     private javax.swing.JLabel jLabelTipoParcelamentoCredito;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
@@ -1181,7 +1198,7 @@ public class Form extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldValor;
     private javax.swing.ButtonGroup modoIntegracao;
     private javax.swing.ButtonGroup multplusCartoes;
-    private javax.swing.JPanel panelBase;
+    private javax.swing.JPanel panelBaseMenu;
     private javax.swing.ButtonGroup qualVia;
     private javax.swing.ButtonGroup reimprimirUltimoCupom;
     // End of variables declaration//GEN-END:variables

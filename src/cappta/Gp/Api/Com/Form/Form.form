@@ -57,19 +57,19 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panelBase" min="-2" pref="714" max="-2" attributes="0"/>
+              <Component id="panelBaseMenu" min="-2" pref="714" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelBase" min="-2" pref="352" max="-2" attributes="0"/>
+          <Component id="panelBaseMenu" min="-2" pref="352" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="panelBase">
+    <Container class="javax.swing.JPanel" name="panelBaseMenu">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
@@ -93,7 +93,7 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelMultiTef" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -128,17 +128,19 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jLabelMultiTef" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="RadioButtonUsarMultiTef" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RadioButtonNaoUsarMultiTef" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelQuantidadeDePagamentosMultiTef" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="NumericUpDownQuantidadeDePagamentosMultiTef" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelModoIntegracao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="RadioButtonInterfaceInvisivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="RadioButtonInterfaceVisivel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelModoIntegracao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RadioButtonInterfaceInvisivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -348,8 +350,8 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelSenhaAdm" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelNControle" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -367,13 +369,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSenhaAdm" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="TextBoxSenhaAdministrativaCancelamento" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="NumericUpDownNumeroControleCancelamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNControle" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="114" max="32767" attributes="0"/>
                           <Component id="ExecutarCancelamento" min="-2" pref="50" max="-2" attributes="0"/>
@@ -382,7 +384,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel16">
+                <Component class="javax.swing.JLabel" name="jLabelSenhaAdm">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Senha Administrativa"/>
                   </Properties>
@@ -392,7 +394,7 @@
                     <Property name="text" type="java.lang.String" value="cappta"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel17">
+                <Component class="javax.swing.JLabel" name="jLabelNControle">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="N&#xfa;mero de Controle"/>
                   </Properties>
@@ -423,7 +425,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelQparcelas" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="NumericUpDownQuantidadeParcelasPagamentoCrediario" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace pref="218" max="32767" attributes="0"/>
@@ -439,7 +441,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelQparcelas" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="NumericUpDownQuantidadeParcelasPagamentoCrediario" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="144" max="32767" attributes="0"/>
@@ -449,7 +451,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="jLabelQparcelas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Quantidade de parcelas"/>
                   </Properties>
@@ -490,7 +492,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel15" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                              <Component id="jLabelTPinpad" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="ButtonSolicitarInformacaoPinpad" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -501,7 +503,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTPinpad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ComboBoxTipoInformacaoPinpad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="128" max="32767" attributes="0"/>
@@ -535,7 +537,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonSolicitarInformacaoPinpadActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel15">
+                <Component class="javax.swing.JLabel" name="jLabelTPinpad">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tipo de entrada Pinpad"/>
                   </Properties>
@@ -795,7 +797,7 @@
             <Property name="text" type="java.lang.String" value="Modo de Integra&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jLabelMultiTef">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="0"/>
